@@ -11,11 +11,11 @@ export const mergeFeedback = async () => {
   const db = await pool.connect();
   try {
     const { rows } = await db.query(
-      'SELECT * FROM "aiSentiment" WHERE "status" = 0 LIMIT 20'
+      'SELECT * FROM "aiSentiment" WHERE "status" = 0 LIMIT 10'
     );
     if (rows.length === 0) {
       console.log("No new jobs found, refetching...");
-      return; // Gracefully exit if no unprocessed responses are found
+      return; // exit if no unprocessed responses are found
     }
     // update the database processing state to true to prevent duplicate task
     const ids = rows.map((row) => row.id);
