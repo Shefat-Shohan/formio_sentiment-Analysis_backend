@@ -34,4 +34,4 @@ export async function enqueueJobs() {
 }
 
 // check every minute
-setInterval(enqueueJobs, 300000);
+setInterval(enqueueJobs, 30000000);
